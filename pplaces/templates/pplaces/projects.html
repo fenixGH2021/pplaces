@@ -1,0 +1,68 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <br>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="card card-body">
+          <a  class="btn btn-sm btn-warning" href="{% url 'index' %}"><< Back</a>
+      </div>			
+    </div>
+    <div class="col-md-2">
+      <div class="card card-body">
+        <h5>Projects ({{ records }})</h5>
+      </div>			
+    </div>
+    <div class="col-md-2">
+      <div class="card card-body">
+        <a  class="btn btn-sm btn-info" href="{% url 'create-project' %}">Add Project</a>
+      </div>			
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-2">Search projects:</div>
+    <div class="col-md-6">
+      <input type="text" class="form-control  form-control-sm" placeholder="Search Project" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-sm btn-warning" onclick="myHideSeek()">Advanced Search</button>
+    </div>
+</div>
+<br>
+  <div class="row" id="mySearch" style="display:none;">
+    <div class="col-md">
+      <div class="card card-body">
+        <form action="" method="GET">
+          <table class="table">
+              {{ myFilter.form.as_table }}
+              <tr><td><button type="submit" class="btn btn-primary">Submit</button></td></tr>
+           </table>
+          </form>
+      </div>			
+    </div>
+  </div>
+  <br>		
+  <div class="row">
+    <div class="col-md">
+      <div class="card card-body">
+        <table class="table">
+          <tr>
+            <th width="20%">Project</th>
+            <th>Title</th>
+          </tr>
+{% for project in projects %}
+          <tr>
+            <td>{{ project.ECCCAssignedProjectIdentfer }}</td>
+            <td><a  href="{% url 'project' project.id %}">{{ project.ProjectTitleEnglish }}</a></td>
+          </tr>
+{% endfor %}  
+        </table>
+      </div>
+    </div>
+    
+  </div>	<!-- END OF the row  --->
+  </div>	<!-- END OF container  --->
+<!-- END OF MAIN CONTENT  --->
+{% endblock content %}

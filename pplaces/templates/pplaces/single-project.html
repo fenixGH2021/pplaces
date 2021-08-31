@@ -1,0 +1,93 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <br>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="card card-body">
+        <a  class="btn btn-sm btn-warning" href="{% url 'projects' %}"><< Back</a>
+      </div>			
+    </div>
+    <div class="col-md-2">
+      <div class="card card-body">
+        <a  class="btn btn-sm btn-warning" href="{% url 'project-fr' project.id %}">Français</a>
+      </div>			
+    </div>
+    <div class="col-md-2">
+      <div class="card card-body">
+        <h5>View Project</h5>
+      </div>			
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="card card-body">
+    <div class="input-group mb-3">		
+      <div class="col-md-2">
+        <span class="input-group-text" id="basic-addon1">Proj. Number:</span>			
+      </div>
+      <div class="col-md-6">{{ project.ECCCAssignedProjectIdentfer }}</div>
+    </div>
+    <div class="input-group mb-3">		
+      <div class="col-md-2">
+        <span class="input-group-text" id="basic-addon1">Title:</span>
+      </div>
+      <div class="col-md-6">{{ project.ProjectTitleEnglish  }}</div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="card card-body">
+    <div class="input-group mb-3">		
+      <div class="col-md-12">
+         <h5>Description:</h5>
+         {{ project.ProjectPurposeDescriptonEnglish  | linebreaks }}
+      </div>
+    </div>
+  </div>
+  </div>
+  
+<div class="row">
+	<div class="card card-body">
+		<div class="col-md-12">
+			<h5>General Location</h5>
+			{{ project.GeneralLocationDescriptonEnglish | linebreaks  }}
+		</div>
+	</div>
+</div>
+
+  <div class="row">
+    <div class="col-md">
+      <div class="card card-body">
+        <h5>Sites</h5>
+        <hr>
+        {% for location in project.ProjectLocation.all %}
+        <p>{{ location.ProjectLocationNameEnglish }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  
+    <div class="col-md">
+      <div class="card card-body">
+        <h5>Priority Places</h5>
+        <hr>
+        <p>Athabasca Falls</p>
+        <p>Bay of Fundy</p>
+        <p>Fredericton, McLeod Ave. Chimney Swift roost site</p>
+        <p>Gros Morne National Park</p>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="card card-body">
+        <h5>Recipient</h5>	<!--  Organization --->		
+        <hr>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>	<!--   End container --->		
+
+<!-- END OF MAIN CONTENT  --->
+{% endblock content %}

@@ -1,0 +1,78 @@
+{% extends "main.html" %}
+
+{% block content %}
+<br>
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-delivered">
+			  	<div class="card-header">
+			  		<h3 class="card-title">ECCC Strategic Priorities</h3>
+			  	</div>
+			  	<div class="card-body">
+			    	<h5 class="card-title">Management, Reporting and Administration for Priority Places Projects</h5>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br>
+<div class="row">
+	<div class="col-md">
+		<div class="card  my-card shadow m-3">
+			<div class="card-header bg-info text-white">
+				<h5>Project Management</h5>
+			</div>
+			<div class="card-body">
+				<p><a href="{% url 'projects' %}">Project Information</a></p>
+				<p>Recipients & Partners</p>
+				<p>Project Funding</p>
+				<p>Supporting Documents</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card  my-card shadow m-3">
+			<div class="card-header bg-info text-white">
+				<h5>Project Reporting</h5>
+			</div>
+			<div class="card-body">
+				<p>Project Results</p>
+				<p>Project Results & Outcomes</p>
+				<p>Partnerships & Engagement</p>
+				<p>Evaluation & Lessons Learned</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md">
+		<div class="card  my-card shadow m-3">
+			<div class="card-header bg-info text-white">
+				<h5>Organizations & Contacts Information</h5>
+			</div>
+			<div class="card-body">
+				<p><a href="{% url 'organizations' %}">Organizations</a></p>
+				<p>People</p>
+				<p>Locations</p>
+			</div>
+		</div>	
+	</div>
+</div>
+<br >
+<div class="row">
+	<div class="col-md-4">
+		<div class="card  my-card shadow m-3">
+			<div class="card-header bg-info text-white">
+			<h5>Reporting Metrics & Reference Data Administration</h5>
+			</div>
+			<div class="card-body">
+				<p>Action Category</p>
+				<p>Action Type with Metrics and Output indicators</p>
+				<p>Other Reference Data</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END OF MAIN CONTENT  --->
+{% endblock %}

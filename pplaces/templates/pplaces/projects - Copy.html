@@ -1,0 +1,51 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+    <section class="hero-section text-center">
+      <div class="container container--narrow">
+        <div class="hero-section__search">
+          <form class="form" action="#" method="get">
+            <div class="form__field">
+              <label for="formInput#search">Search projects </label>
+              <input class="input input--text" id="formInput#search" type="text" name="text"
+                placeholder="Search by projects" />
+            </div>
+            <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+          </form>
+          <a href="{% url 'create-project' %}" class="btn btn--sub btn--lg">Add Project</a>
+        </div>
+      </div>
+    </section>
+    <section class="devlist">
+      <div class="container">
+        <div class="grid grid--three">
+
+{% for project in projects %}
+          <div class="column card">
+            <div class="dev">
+              <div class="card__body">
+                <div class="dev__profile">
+                  <div class="dev__meta">
+                    <h3>{{ project.ECCCAssignedProjectIdentfer }}</h3>
+                    <h5>{{ project.PriorityPlaceUID.PriorityPlaceNameEnglish }}</h5>
+                  </div>
+                </div>
+                <p class="dev__info">{{ project.ProjectTitleEnglish }}</a></p>
+                <div class="dev__skills">
+                  <span class="tag tag--pill tag--main">
+                    <small><a href="{% url 'project' project.id %}">View</a></small>
+                  </span>
+                  <span class="tag tag--pill tag--main">
+                    <small><a href="{% url 'update-project' project.id %}">Update</a></small>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+    {% endfor %}
+        </div>
+      </div>
+    </section>
+
+{% endblock content %}

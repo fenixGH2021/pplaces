@@ -1,0 +1,79 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <br>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="card card-body">
+          <a  class="btn btn-sm btn-warning" href="{% url 'projects' %}"><< Back</a>
+        </div>			
+      </div>
+      <div class="col-md-2">
+        <div class="card card-body"><h5>{{title}}</h5></div>			
+      </div>
+    </div>
+  
+    <br>
+    <form method="POST" action="">
+      {% csrf_token %}
+    <div class="row">
+     <div class="card card-body">		
+      <div class="input-group mb-3">		
+        <div class="col-md-2">
+          <span class="input-group-text" id="{{ form.ProjectTitleEnglish.id_for_label }}">
+          <label for="{{ form.ProjectTitleEnglish.id_for_label }}">Proj. Number:</label>
+        </span>	
+        </div>
+        <div class="col-md-6">{{ form.ProjectTitleEnglish }}</div>
+      </div>
+        
+      <div class="input-group mb-3">		
+        <div class="col-md-2">
+          <span class="input-group-text" id="form.ECCCAssignedProjectIdentfer.od_for_label">Title:</span>
+        </div>
+        <div class="col-md-6">{{ form.ECCCAssignedProjectIdentfer }}</div>
+      </div>
+  
+      <div class="input-group mb-3">		
+        <div class="col-md-2">
+           <span class="input-group-text">Description:</span>
+        </div>
+        <div class="col-md-6">
+            {{ form.ProjectPurposeDescriptonEnglish }}
+        </div>
+      </div>
+  
+      <div class="input-group mb-3">		
+        <div class="col-md-2">
+           <span class="input-group-text">General Location:</span>
+        </div>
+        <div class="col-md-6">{{ form.GeneralLocationDescriptonEnglish }}</div>
+      </div>
+      
+      <div class="input-group mb-3">		
+        <div class="col-md-2">
+           <span class="input-group-text">Project Location:</span>
+        </div>
+        <div class="col-md-6">{{ form.ProjectLocation}}</div>
+      </div>
+          
+  
+      <div class="input-group mb-3">		
+        <div class="col-md-2">
+           <span class="input-group-text">Priority Places:</span>
+        </div>
+        <div class="col-md-6">{{ form.PriorityPlaceUID }}</div>
+      </div>
+  
+      <div class="input-group mb-3">		
+        <div class="col-md-2">
+          <input class="btn btn-sm btn-info" type="submit" value="Submit" />
+        </div>
+      </div>
+    </div>	<!--  	card card-body --->
+    </div>	<!--   End row --->
+    </form>
+</div>	<!--   End container --->		
+  <!-- END OF MAIN CONTENT  --->
+{% endblock content %}
